@@ -1,0 +1,12 @@
+
+
+Path_Size_Sum: 207.438
+Number of Paths: 49
+Path Size Average: 4.23343
+Monte Carlo Run #1: 
+Graph Size: 50
+Graph Density: 0.2
+Number of Monte Carlo Runs: 1
+Average Path Size: 4.23343
+
+

@@ -1,0 +1,259 @@
+//*******************************
+//
+//  C++ Support File 
+//	- Graph Class
+//
+//*******************************
+
+//*******************************
+//
+//  Standard Header
+//
+//*******************************
+
+#include <iostream>
+#include <vector>
+#include <time.h>
+#include "header.h"
+
+using namespace std;
+
+//***************************************************************************************************
+//
+//  Support Program Section - Graph Class
+//
+//***************************************************************************************************
+
+//********************************
+//
+//  Graph Constructors
+//
+//********************************
+
+Graph::Graph(int n, double d) : nodes(n), density(d)
+{
+
+	GraphAM.resize(nodes);
+	
+	for (int i=0;i<nodes;i++)
+	{
+		for (int j=0;j<nodes;j++)
+		{
+			GraphAM[i].push_back(make_pair(j,0));
+		}
+	}
+	
+	return;
+
+}
+
+Graph::~Graph()
+{
+}
+
+//********************************
+//
+//  Graph Working Methods
+//
+//********************************
+
+
+int Graph::Graph_NoVertices()
+{
+
+	return nodes;
+
+}
+
+int Graph::Graph_NoEdges()
+{
+
+	int NoEdges = 0;
+
+	for (int i=0;i<nodes;i++)
+	{
+		
+		for (int j=0;j<nodes;j++)
+		{
+			if (GraphAM[i][j].second > 0)
+			{
+				NoEdges += 1;
+			}
+		}
+		
+	}
+
+	return NoEdges;
+}
+
+void Graph::Graph_FillGraph()
+{
+
+	double randdensity;
+	double randedgeweight;
+
+	//Zero Out All Entries
+	for (int i=0; i<nodes;i++)
+	{
+		for (int j=0;j<nodes;j++)
+		{
+			GraphAM[i][j].second = 0.0;
+		}
+	}
+	
+	//Randomly Select edges using the "if the randon number is less than 20%, then an edge exists"	
+	for (int i=0; i<nodes;i++)
+	{
+		for (int j=0;j<nodes;j++)
+		{
+
+			if(j == i)
+			{
+				continue;
+			}
+			else if(GraphAM[i][j].second > 0.0)
+			{
+				continue;
+			}
+			else
+			{
+				randdensity = ((double) rand()/(RAND_MAX+1));
+
+				if (randdensity < density)
+				{
+					randedgeweight = (double) (rand() % 9000 + 1000)/1000;
+					GraphAM[i][j].second = randedgeweight;
+					GraphAM[j][i].second = randedgeweight;
+				}
+			}
+
+		}
+	}
+
+}
+
+//********************************
+//
+//  Graph Future Methods
+//
+//********************************
+
+bool Graph::Graph_Adjacent(int x, int y)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return false;
+
+}
+
+void Graph::Graph_Neighbors(int x, int y)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return;
+
+}
+
+void Graph::Graph_AddEdge(int x, int y)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return;
+
+}
+
+void Graph::Graph_DeleteEdge(int x, int y)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return;
+
+}
+
+double Graph::Graph_GetNodeValue(int x)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return 0.0;
+
+}
+
+void Graph::Graph_SetNodeValue(int x, double a)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return;
+
+}
+
+double Graph::Graph_GetEdgeValue(int x, int y)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return 0.0;
+
+}
+
+void Graph::Graph_SetEdgeValue(int x, int y, double a)
+{
+
+	cout << "Nothing here to see yet" << endl;
+
+	return;
+
+}
+
+//********************************
+//
+//  Graph My Methods
+//
+//********************************
+
+void Graph::Graph_ManualCreateGraph()
+{
+
+	pair<int,double> newcolumn;
+	double x;
+	
+	for (int i=0;i<nodes;i++)
+	{
+		for (int j=0;j<nodes;j++)
+		{
+			cout << "Enter the cost of edge [" << i+1 << "],[" << j+1 << "]: ";
+			cin >> x;
+			GraphAM[i].push_back(newcolumn);
+			GraphAM.at(i).push_back(make_pair(j,x));
+		}
+	}
+	
+	return;
+
+}
+
+void Graph::Graph_ShowEdge()
+{
+
+	std::cout.precision(1);
+	std::cout.setf( std::ios::fixed, std:: ios::floatfield);
+
+	for (int i=0;i<nodes;i++)
+	{
+		for (int j=0;j<nodes;j++)
+		{
+			cout << GraphAM[i][j].second << " ";
+		}
+		
+		cout << endl;
+
+	}
+	
+	return;
+
+}

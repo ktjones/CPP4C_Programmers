@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph" Collapsed="true">
+    <Position X="1.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQQICGAAAAABkAABAAACQBRACAAAABgAAEAAAQAEACA=</HashCode>
+      <FileName>header - Graph.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hex" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAIIAAkAAAAYAAACEAABAAACEACAACABABA=</HashCode>
+      <FileName>header - Hex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MST" Collapsed="true">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAEAAAgAAAAEEAAAAAAACCAAAAwAA=</HashCode>
+      <FileName>header - MST.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

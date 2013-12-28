@@ -1,0 +1,72 @@
+//***************************************************************************************************
+//
+//  C++ Program 
+//	- Homework #3 - MST Algorithm
+//
+//***************************************************************************************************
+//*******************************
+//
+//  Standard Header
+//
+//*******************************
+
+#include <iostream>
+#include <time.h>
+#include "header.h"
+
+using namespace std;
+
+
+//********************************
+//
+//  Pre-Program Declarations
+//
+//********************************
+
+
+
+//***************************************************************************************************
+//
+//  Main Program Section
+//
+//***************************************************************************************************
+
+int main(int nNumberofArgs, char* pszArgs[])
+{
+	//*  Variable Declaration
+	srand(time(0));
+	int NodeCount = 5;
+	int source = 0;
+	bool flag = false;
+
+	double GraphDensity = 1;
+	double Path_Size = 0;
+	double No_Paths = 0;
+	double Path_Size_Sum = 0;
+	double Path_Size_Average = 0;
+	
+	string filename = "sample.txt";
+	
+	//* Main Code
+		
+	//  Object Declaration
+	Graph GraphAM(filename);
+	MST Algo_MST = MST();
+
+	//  Minimum Spanning Tree
+	//  Algo_MST.MST_Path(0,GraphAM);
+	Path_Size = Algo_MST.MST_Path_Size(0,GraphAM);
+	Algo_MST.MST_Show_Path();
+	
+	cout << endl;
+	cout << "Minimum Spanning Tree Path Size: " << Path_Size << endl;
+
+	//*  Program End
+	//   - wait until user is ready before terminating program
+	//   - to allow the user to see the program results
+
+	cout << endl << endl;
+	system("PAUSE");
+	return 0;
+}
+

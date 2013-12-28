@@ -1,0 +1,134 @@
+//**************************************************************
+//
+//  C++ Template - Header File
+//
+//**************************************************************
+
+//**************************************************************
+//
+//  Definition Statements - Begin
+//
+//**************************************************************
+
+#ifndef HEADER_H_
+#define HEADER_H_
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+//**************************************************************
+//
+//  Code Body - Begin
+//
+//**************************************************************
+
+//*******************************
+//
+//  Graph Class
+//	- Implemented as Adjacency Matrix
+//
+//*******************************
+
+class Graph
+{
+	private:
+		
+		int nodes;
+		double density;
+		vector<vector<pair<int,double>>> GraphAM;
+
+	public:
+		
+		//Constructors
+		Graph(int n = 0, double d = 0.2);
+		~Graph();
+
+		//Working methods
+		int Graph_NoVertices();
+		int Graph_NoEdges();
+		void Graph_FillGraph();
+		
+		//Friend functions & Classes
+		friend class ShortestPathAlgo; 
+
+		//Future methods
+		bool Graph_Adjacent(int x, int y);
+		void Graph_Neighbors(int x, int y);
+		void Graph_AddEdge(int x, int y);
+		void Graph_DeleteEdge(int x, int y);
+		double Graph_GetNodeValue(int x);
+		void Graph_SetNodeValue(int x, double a);
+		double Graph_GetEdgeValue(int x, int y);
+		void Graph_SetEdgeValue(int x, int y, double a);
+
+		//My Methods
+		void Graph_ManualCreateGraph();
+		void Graph_ShowEdge();
+		
+};
+
+//*******************************
+//
+//  ShortestAlgoPath Class
+//
+//*******************************
+
+class ShortestPathAlgo
+{
+
+	private:
+
+		vector<int> Dj_Shortest_Path;
+		double Dj_Shortest_Path_Size;
+		
+	public:
+		
+		//constructors
+		ShortestPathAlgo();
+		~ShortestPathAlgo();
+
+		//Working Methods
+		void ShortestPathAlgo_Path(int s, int d, const Graph & g);
+		double ShortesPathAlgo_Path_Size(int s, int d, const Graph & g);
+		
+		//Future Methods
+		void ShortestPathAlgo_Vertices(Graph & g);
+		
+};
+
+//*******************************
+//
+//  Helper Class 
+//	 - Compares <Pair> container
+//
+//*******************************
+
+
+class Comparison
+{
+	public:
+		
+		int operator() ( const pair<int,double>& p1, const pair<int,double> &p2)
+		{
+			return p1.second>p2.second;
+		}
+
+};
+
+
+//**************************************************************
+//
+//  Code Body - End
+//
+//**************************************************************
+
+
+//**************************************************************
+//
+//  Definition Statements - End
+//
+//**************************************************************
+
+#endif
